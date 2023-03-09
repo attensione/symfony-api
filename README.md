@@ -1,2 +1,2 @@
 # symfony-api
-Symfony Rest Api
+Symfony REST API
