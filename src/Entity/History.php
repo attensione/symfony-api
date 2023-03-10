@@ -27,10 +27,10 @@ class History
     private ?int $secondOut = null;
 
     #[ORM\Column]
-    private ?datetime $createdAt;
+    private ?string $createdAt;
 
     #[ORM\Column]
-    private ?datetime $updatedAt;
+    private ?string $updatedAt;
 
     public function getId(): ?int
     {
@@ -86,14 +86,15 @@ class History
     }
 
     #[ORM\PrePersist()]
-    public function createdAt()
+    public function setCreatedAt()
     {
-        $this->createdAt = new \DateTime();
-        $this->updatedAt = new \DateTime();
+        $datetime = new \DateTime();
+        $this->createdAt = $datetime->format('Y-m-d H:i:s');
+        $this->updatedAt = $datetime->format('Y-m-d H:i:s');
     }
 
     #[ORM\PreUpdate()]
-    public function updateAt()
+    public function setUpdateAt()
     {
         $this->updatedAt = new \DateTime();
     }

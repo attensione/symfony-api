@@ -24,6 +24,7 @@ class HistoryController extends AbstractController
         $history->setSecondIn($second);
         $history->setFirstOut($second);
         $history->setSecondOut($first);
+        //$history->setCreatedAt();
 
         $entityManager->persist($history);
         $entityManager->flush();
