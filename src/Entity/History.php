@@ -85,6 +85,16 @@ class History
         return $this;
     }
 
+    public function getCreatedAt(): ?string
+    {
+        return $this->createdAt;
+    }
+
+    public function getUpdatedAt(): ?string
+    {
+        return $this->updatedAt;
+    }
+
     #[ORM\PrePersist()]
     public function setCreatedAt()
     {
@@ -94,8 +104,9 @@ class History
     }
 
     #[ORM\PreUpdate()]
-    public function setUpdateAt()
+    public function setUpdatedAt()
     {
-        $this->updatedAt = new \DateTime();
+        $datetime = new \DateTime();
+        $this->updatedAt = $datetime->format('Y-m-d H:i:s');
     }
 }

@@ -18,3 +18,4 @@ fos_rest:
     format_listener:
         rules:
             - { path: ^/exchange/values, prefer_extension: true, fallback_format: json, priorities: [ json, html ] }
+            - { path: ^/exchange/get, prefer_extension: true, fallback_format: json, priorities: [ json, html ] }
